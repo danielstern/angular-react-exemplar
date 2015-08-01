@@ -13,15 +13,12 @@ angular.module("MailboxApp",['ui.router'])
 .run(function(){
     console.info("Mailbox Running.");
 })
-.controller("MessageRowController",function($scope){
-    var g = Math.random();
-})
 .service("messageStore",function(){
     var messages = [];
     // at 100 it's fine
     // at 1000 its a little buggy
     // at 10000 its all over
-    var sampleSize = 100;
+    var sampleSize = 10000;
     for (var i = 0; i < sampleSize; i++){
         messages.push({
             sender:`john.smith${i}@gmail.com`,
