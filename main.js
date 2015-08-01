@@ -91,14 +91,14 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
     // at 100 it's fine
     // at 1000 its a little buggy
     // at 10000 its all over
-    var sampleSize = 10000;
+    var sampleSize = 1000;
     for (var i = 0; i < sampleSize; i++) {
         messages.push({
             sender: "john.smith" + i + "@gmail.com",
             date: Date.now() - i * 240000000,
             id: i,
             subject: "Regarding report DS-" + i,
-            body: "Where's that report? I've been waiting " + i + " days. -John"
+            body: "Where's that report? I've been waiting " + i + " days now."
         });
     };
     return {

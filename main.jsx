@@ -82,7 +82,7 @@ angular.module("MailboxApp",['ui.router'])
             date:Date.now() - i*240000000,
             id:i,
             subject:`Regarding report DS-${i}`,
-            body:`Where's that report? I've been waiting ${i} days. -John`
+            body:`Where's that report? I've been waiting ${i} days now.`
         })
     };
     return {
