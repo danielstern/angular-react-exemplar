@@ -5,4 +5,22 @@
     <h3>
         10 Unread Messages
     </h3>
+    <div id=MessageList>
+       <table>
+           <thead>
+               <th>
+                   Sender
+               </th>
+           </thead>
+       
+        <tr ng-repeat="message in messages" ng-controller=MessageRowController>
+            <td>
+                {{message.sender}}
+            </td>
+            <td>
+                {{message.subject}}
+            </td>
+        </tr>
+        </table>
+    </div>
 </div>
