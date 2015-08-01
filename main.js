@@ -1,5 +1,11 @@
 angular.module("MailboxApp",['ui.router'])
-.config(function(){
+.config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise("/inbox");
+    $stateProvider
+    .state('inbox', {
+      url: "/inbox",
+      templateUrl: "partials/inbox.html"
+    })
     
 })
 .run(function(){
