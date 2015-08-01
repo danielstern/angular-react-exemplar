@@ -16,9 +16,9 @@ angular.module("MailboxApp",['ui.router'])
                         </h2>
                         <table>
                             
-                        {messageStore.getMessages().map(function(m){
+                        {messageStore.getMessages().map(function(m,i){
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>
                                         {m.sender}
                                     </td>
@@ -59,7 +59,7 @@ angular.module("MailboxApp",['ui.router'])
     // at 100 it's fine
     // at 1000 its a little buggy
     // at 10000 its all over
-    var sampleSize = 1000;
+    var sampleSize = 10000;
     for (var i = 0; i < sampleSize; i++){
         messages.push({
             sender:`john.smith${i}@gmail.com`,

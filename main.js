@@ -23,10 +23,10 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
                         React.createElement(
                             "table",
                             null,
-                            messageStore.getMessages().map(function (m) {
+                            messageStore.getMessages().map(function (m, i) {
                                 return React.createElement(
                                     "tr",
-                                    null,
+                                    { key: i },
                                     React.createElement(
                                         "td",
                                         null,
@@ -67,7 +67,7 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
     // at 100 it's fine
     // at 1000 its a little buggy
     // at 10000 its all over
-    var sampleSize = 1000;
+    var sampleSize = 10000;
     for (var i = 0; i < sampleSize; i++) {
         messages.push({
             sender: "john.smith" + i + "@gmail.com",
