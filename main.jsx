@@ -28,7 +28,6 @@ angular.module("MailboxApp",['ui.router'])
                                     <td>
                                         {$filter('date')(m.date)}
                                     </td>
-
                                 </tr>
                                 
                             );
