@@ -12,7 +12,7 @@ angular.module("MailboxApp",['ui.router'])
                 return (
                     <div>
                         <h2>
-                            Messages
+                        {messageStore.getMessages().length} Unread Messages
                         </h2>
                         <table>
                     
