@@ -13,12 +13,15 @@
                </th>
            </thead>
        
-        <tr ng-repeat="message in messages" >
+        <tr ng-repeat="message in messages">
+           
             <td>
                 {{message.sender}}
             </td>
             <td>
+               <a ui-sref="message({id:message.id})">
                 {{message.subject}}
+                </a>
             </td>
         </tr>
         </table>
