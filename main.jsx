@@ -15,6 +15,20 @@ angular.module("MailboxApp",['ui.router'])
                             Messages
                         </h2>
                         <table>
+                    
+                        <thead>
+                           <th>
+                               Sender
+                           </th>
+                           <th>
+                            
+                               Subject
+                            
+                           </th>
+                           <th>
+                               Date
+                           </th>
+                       </thead>
                             
                         {messageStore.getMessages().map(function(m,i){
                             return (
@@ -23,7 +37,9 @@ angular.module("MailboxApp",['ui.router'])
                                         {m.sender}
                                     </td>
                                     <td>
+                                        <a href={"/#/message/"+i}>
                                         {m.subject}
+                                        </a>
                                     </td>
                                     <td>
                                         {$filter('date')(m.date)}

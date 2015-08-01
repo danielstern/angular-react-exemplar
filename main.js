@@ -23,6 +23,25 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
                         React.createElement(
                             "table",
                             null,
+                            React.createElement(
+                                "thead",
+                                null,
+                                React.createElement(
+                                    "th",
+                                    null,
+                                    "Sender"
+                                ),
+                                React.createElement(
+                                    "th",
+                                    null,
+                                    "Subject"
+                                ),
+                                React.createElement(
+                                    "th",
+                                    null,
+                                    "Date"
+                                )
+                            ),
                             messageStore.getMessages().map(function (m, i) {
                                 return React.createElement(
                                     "tr",
@@ -35,7 +54,11 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
                                     React.createElement(
                                         "td",
                                         null,
-                                        m.subject
+                                        React.createElement(
+                                            "a",
+                                            { href: "/#/message/" + i },
+                                            m.subject
+                                        )
                                     ),
                                     React.createElement(
                                         "td",
