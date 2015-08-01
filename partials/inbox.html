@@ -11,6 +11,12 @@
                <th>
                    Sender
                </th>
+               <th>
+                   Subject
+               </th>
+               <th>
+                   Date
+               </th>
            </thead>
        
         <tr ng-repeat="message in messages">
@@ -20,8 +26,11 @@
             </td>
             <td>
                <a ui-sref="message({id:message.id})">
-                {{message.subject}}
+                    {{message.subject}}
                 </a>
+            </td>
+            <td>
+                {{message.date | date}}
             </td>
         </tr>
         </table>

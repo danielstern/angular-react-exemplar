@@ -29,7 +29,7 @@ angular.module("MailboxApp",['ui.router'])
     for (var i = 0; i < sampleSize; i++){
         messages.push({
             sender:`john.smith${i}@gmail.com`,
-            date:Date.now() - i*60000,
+            date:Date.now() - i*240000000,
             id:i,
             subject:`Regarding report DS-${i}`,
             body:`Where's that report? I've been waiting ${i} days. -John`
