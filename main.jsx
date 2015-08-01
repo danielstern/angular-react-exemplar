@@ -5,26 +5,43 @@ angular.module("MailboxApp",['ui.router'])
     .state('inbox', {
         url: "/inbox",
         templateUrl: "partials/inbox.html",
-        controller:function($scope,messageStore,$element){
-//            $scope.messages = messageStore.getMessages();
-//        }
+        controller:function($scope,messageStore,$element,$filter){
             
         var MessageList = React.createClass({
             render:function(){
                 return (
                     <div>
-                        Messages!!
-                        <div>
-                    {messageStore.getMessages().map(function(m){
-                        return m;
-                    })}
-                        </div>
+                        <h2>
+                            Messages
+                        </h2>
+                        <table>
+                            
+                        {messageStore.getMessages().map(function(m){
+                            return (
+                                <tr>
+                                    <td>
+                                        {m.sender}
+                                    </td>
+                                    <td>
+                                        {m.subject}
+                                    </td>
+                                    <td>
+                                        {$filter('date')(m.date)}
+                                    </td>
+
+                                </tr>
+                                
+                            );
+                        })}
+                        </table>
                     </div>
                 )
             }
         });
             
-        React.render(<MessageList />,$element[0]);
+        var messages = messageStore.getMessages();
+            
+        React.render(<MessageList messages={messages}/>, $element[0]);
         }
     })   
     .state('message', {

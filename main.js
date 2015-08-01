@@ -6,9 +6,7 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
     $stateProvider.state('inbox', {
         url: "/inbox",
         templateUrl: "partials/inbox.html",
-        controller: function controller($scope, messageStore, $element) {
-            //            $scope.messages = messageStore.getMessages();
-            //        }
+        controller: function controller($scope, messageStore, $element, $filter) {
 
             var MessageList = React.createClass({
                 displayName: "MessageList",
@@ -17,19 +15,43 @@ angular.module("MailboxApp", ['ui.router']).config(function ($stateProvider, $ur
                     return React.createElement(
                         "div",
                         null,
-                        "Messages!!",
                         React.createElement(
-                            "div",
+                            "h2",
+                            null,
+                            "Messages"
+                        ),
+                        React.createElement(
+                            "table",
                             null,
                             messageStore.getMessages().map(function (m) {
-                                return m;
+                                return React.createElement(
+                                    "tr",
+                                    null,
+                                    React.createElement(
+                                        "td",
+                                        null,
+                                        m.sender
+                                    ),
+                                    React.createElement(
+                                        "td",
+                                        null,
+                                        m.subject
+                                    ),
+                                    React.createElement(
+                                        "td",
+                                        null,
+                                        $filter('date')(m.date)
+                                    )
+                                );
                             })
                         )
                     );
                 }
             });
 
-            React.render(React.createElement(MessageList, null), $element[0]);
+            var messages = messageStore.getMessages();
+
+            React.render(React.createElement(MessageList, { messages: messages }), $element[0]);
         }
     }).state('message', {
         url: "/message/:id",

@@ -13,6 +13,6 @@ gulp.task('jsx',function(){
 	.pipe(gulp.dest('./'));
 });
 
-gulp.task('dev',function(){
+gulp.task('dev',['jsx'],function(){
     gulp.watch('./main.jsx',['jsx'])
 })
