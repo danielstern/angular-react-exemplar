@@ -1,4 +1,4 @@
-angular.module("MailboxApp",[])
+angular.module("MailboxApp",['ui.router'])
 .config(function(){
     
 })
